@@ -1,0 +1,22 @@
+# Projeto: NECXUS - Agência de Captura de Clientes
+
+## Visão Geral
+Agência focada em transformar negócios locais através de funis automáticos e sites de alta conversão.
+
+## Estrutura de Páginas
+1. **Home**: Proposta de valor, prova social, resumo de serviços e CTA principal.
+2. **Portfólio**: Galeria detalhada com a "Escala de Evolução Técnica" (7 projetos).
+3. **Serviços**: Detalhamento de LPs, Funis, SEO Local e Integrações.
+4. **Contato**: Formulário inteligente e links sociais.
+
+## Portfólio (Dados)
+1. Eclipse Tattoo Studio (HTML/Tailwind)
+2. Iron Vault Academy (Vanilla CSS)
+3. O Sonhador (Canvas JS)
+4. Clínica Dr. Marcos (Vite/Google Fonts)
+5. Blue Server Academy (GSAP/Canvas)
+6. Sandra Domingues (Design Tokens/SEO)
+7. Bento Express Premium (Next.js/React)
+
+## Diferencial
+Atendimento solo dedicado (Human-centric tech).

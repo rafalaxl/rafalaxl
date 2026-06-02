@@ -1,0 +1,98 @@
+/* cta.css - Seção de Conversão Final (Nexus Layer) */
+
+/* Layout Padrão: Mobile-first */
+.cta-section {
+  position: relative;
+  background-color: var(--color-primary-container);
+  color: var(--color-pure-white);
+  padding: var(--space-section-mobile) 0;
+  overflow: hidden;
+}
+
+/* Efeito luminoso de fundo Nexus */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-secondary-opacity-25) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-electric-blue-opacity-30) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-section__container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cta-section__title {
+  font-size: var(--text-hero);
+  color: var(--color-pure-white);
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.cta-section__description {
+  font-size: var(--text-lg);
+  color: var(--color-on-primary-container);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.cta-section__button {
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  padding: 1.25rem 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-btn-cta);
+  transition: var(--transition-smooth);
+  width: 100%;
+  justify-content: center;
+}
+
+.cta-section__button:hover {
+  background-color: var(--color-electric-blue-dark);
+  border-color: var(--color-electric-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-cta-hover);
+}
+
+/* Layout para Telas Maiores (Desktop) */
+@media (min-width: 768px) {
+  .cta-section {
+    padding: var(--space-section-desktop) 0;
+  }
+  
+  .cta-section__button {
+    width: auto;
+    justify-content: flex-start;
+  }
+}

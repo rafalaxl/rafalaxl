@@ -1,0 +1,147 @@
+/* nav.css - TopNavBar e Navegação Responsiva da NECXUS */
+
+/* Layout Padrão: Mobile-first */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+  transition: var(--transition-smooth);
+}
+
+.nav-bar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 1rem var(--space-gutter);
+}
+
+.nav-bar__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-bar__logo-img {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
+}
+
+.nav-bar__brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+/* Hamburger Menu Icon */
+.nav-bar__toggle {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Ícone WhatsApp na navbar (só mobile) */
+.nav-bar__whatsapp-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-whatsapp);
+  transition: var(--transition-smooth);
+}
+
+.nav-bar__whatsapp-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.nav-bar__whatsapp-icon:hover {
+  color: var(--color-whatsapp-hover);
+  transform: scale(1.1);
+}
+
+.nav-bar__menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  flex-direction: column;
+  padding: 1.5rem var(--space-gutter);
+  gap: 1.25rem;
+  box-shadow: var(--shadow-lg);
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
+}
+
+.nav-bar__menu--open {
+  display: flex;
+}
+
+.nav-bar__link {
+  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-slate-grey);
+  transition: var(--transition-smooth);
+  display: block;
+}
+
+.nav-bar__link:hover,
+.nav-bar__link--active {
+  color: var(--color-secondary);
+}
+
+/* Botão de Contato CTA */
+.nav-bar__cta {
+  background-color: var(--color-secondary);
+  color: var(--color-on-secondary);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-secondary);
+  transition: var(--transition-smooth);
+  text-align: center;
+}
+
+.nav-bar__cta:hover {
+  background-color: var(--color-electric-blue-dark);
+  border-color: var(--color-electric-blue-dark);
+}
+
+/* Layout para Telas Maiores (Desktop) */
+@media (min-width: 768px) {
+  .nav-bar__toggle {
+    display: none;
+  }
+
+  .nav-bar__menu {
+    display: flex;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    flex-direction: row;
+    padding: 0;
+    gap: 1.5rem;
+    box-shadow: none;
+    border-top: none;
+  }
+}

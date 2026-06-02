@@ -1,0 +1,28 @@
+/* portfolio.css - Página de Portfólio da NECXUS */
+
+/* Layout Padrão: Mobile-first */
+.portfolio-hero {
+  padding: var(--space-section-mobile) 0;
+  background-color: var(--color-background);
+  text-align: center;
+}
+
+.portfolio-hero__title {
+  font-size: var(--text-hero);
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.portfolio-hero__description {
+  font-size: var(--text-lg);
+  color: var(--color-slate-grey);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Layout para Telas Maiores (Desktop) */
+@media (min-width: 768px) {
+  .portfolio-hero {
+    padding: var(--space-section-desktop) 0;
+  }
+}

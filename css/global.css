@@ -1,0 +1,100 @@
+/* global.css - Estilos base e tipografia global da NECXUS */
+
+@import url('tokens.css');
+@import url('reset.css');
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-size: var(--text-md);
+  overflow-x: hidden;
+  /* Compensa a navbar fixed para o conteúdo não ficar escondido */
+  padding-top: var(--navbar-height);
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4 {
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+/* ── Utility Classes ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-gutter);
+  padding-left: var(--space-gutter);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Acessibilidade (Skip Link) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-secondary);
+  color: var(--color-on-secondary);
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Efeito Divisor do Stitch */
+.nexus-divider {
+  position: relative;
+  height: 1px;
+  background-color: var(--color-outline-variant);
+  opacity: 0.5;
+  width: 100%;
+  margin: var(--space-section-mobile) 0;
+}
+
+.nexus-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-full);
+}
+
+@media (min-width: 768px) {
+  .nexus-divider {
+    margin: var(--space-section-desktop) 0;
+  }
+}
+
+/* Animações de Scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

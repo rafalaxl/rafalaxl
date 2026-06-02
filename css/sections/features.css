@@ -1,0 +1,142 @@
+/* features.css - Recursos, Benefícios e Seção Especialista Solo da NECXUS */
+
+/* Layout Padrão: Mobile-first */
+.features {
+  padding: var(--space-section-mobile) 0;
+  background-color: var(--color-background);
+}
+
+.features__header {
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.features__title {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.features__subtitle {
+  font-size: var(--text-md);
+  color: var(--color-slate-grey);
+}
+
+/* Grid de Diferenciais */
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: var(--color-pure-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.feature-card__icon-wrapper {
+  height: 3rem;
+  width: 3rem;
+  background-color: var(--color-surface-container-low);
+  color: var(--color-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.feature-card__description {
+  font-size: var(--text-md);
+  color: var(--color-slate-grey);
+  line-height: 1.6;
+}
+
+/* Painel de Especialista Solo */
+.expert-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.expert-panel__img-wrapper {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.expert-panel__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.expert-panel__title {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.expert-panel__text {
+  font-size: var(--text-lg);
+  color: var(--color-slate-grey);
+  margin-bottom: 2rem;
+}
+
+.expert-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expert-panel__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: var(--text-md);
+  color: var(--color-on-surface-variant);
+}
+
+.expert-panel__icon {
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+/* Layout para Telas Médias (Tablet) */
+@media (min-width: 768px) {
+  .features {
+    padding: var(--space-section-desktop) 0;
+  }
+
+  .features__header {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Layout para Telas Grandes (Desktop) */
+@media (min-width: 1024px) {
+  .expert-panel {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    margin-top: 6rem;
+  }
+}

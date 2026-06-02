@@ -1,0 +1,47 @@
+/* contact.css - Página de Contato e Canais de Atendimento da NECXUS */
+.contact-section { padding: var(--space-section-mobile) 0; background-color: var(--color-background); }
+.contact-section__grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+.contact-info__title { font-size: var(--text-hero); color: var(--color-primary); margin-bottom: 1.5rem; }
+.contact-info__description { font-size: var(--text-lg); color: var(--color-slate-grey); margin-bottom: 3rem; }
+.contact-channels { display: flex; flex-direction: column; gap: 1.5rem; }
+.channel-card { display: flex; align-items: flex-start; gap: 1rem; background-color: var(--color-pure-white); padding: 1.5rem; border-radius: var(--radius-lg); border: var(--border-light); transition: var(--transition-smooth); }
+.channel-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.channel-card__icon { font-size: 1.5rem; color: var(--color-secondary); }
+.channel-card__title { font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem; }
+.channel-card__detail { font-size: var(--text-md); color: var(--color-slate-grey); }
+
+/* Formulário de Contato */
+.contact-form { background-color: var(--color-pure-white); padding: 2rem; border-radius: var(--radius-lg); border: var(--border-light); box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+.contact-form::before { content: ''; position: absolute; top: -80px; right: -80px; width: 160px; height: 160px; background-color: var(--color-surface-container-low); filter: blur(20px); border-radius: var(--radius-full); pointer-events: none; }
+.contact-form__title { font-size: var(--text-xl); color: var(--color-primary); margin-bottom: 2rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group__label { display: block; font-size: var(--text-xs); font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
+
+.form-group__input, .form-group__select, .form-group__textarea {
+  width: 100%; background-color: var(--color-surface); border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-md); padding: 0.75rem 1rem; font-size: var(--text-md);
+  color: var(--color-on-surface); outline: none; transition: var(--transition-smooth);
+}
+.form-group__input:focus, .form-group__select:focus, .form-group__textarea:focus { border-color: var(--color-secondary); box-shadow: var(--shadow-btn-focus); }
+
+.form-submit-btn {
+  width: 100%; background-color: var(--color-secondary); color: var(--color-on-secondary);
+  font-weight: 600; font-size: var(--text-xs); padding: 1rem; border-radius: var(--radius-md);
+  border: 1px solid var(--color-secondary); transition: var(--transition-smooth);
+  box-shadow: var(--shadow-btn-cta); cursor: pointer;
+}
+.form-submit-btn:hover { background-color: var(--color-electric-blue-dark); border-color: var(--color-electric-blue-dark); box-shadow: var(--shadow-btn-cta-hover); }
+.form-note { font-size: 0.8rem; color: var(--color-slate-grey); text-align: center; margin-top: 1rem; }
+
+/* Feedback Visual do Formulário */
+.contact-form__feedback { display: none; padding: 1rem; border-radius: var(--radius-md); font-size: var(--text-md); font-weight: 600; margin-bottom: 1.5rem; text-align: center; }
+.contact-form__feedback--success { background-color: var(--color-success-bg); color: var(--color-success); border: 1px solid var(--color-success-border); }
+.contact-form__feedback--error { background-color: var(--color-error-bg); color: var(--color-error); border: 1px solid var(--color-error-border); }
+
+@media (min-width: 768px) {
+  .contact-section { padding: var(--space-section-desktop) 0; }
+}
+@media (min-width: 1024px) {
+  .contact-section__grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+  .contact-form { padding: 3rem; }
+}

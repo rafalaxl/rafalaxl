@@ -1,0 +1,114 @@
+/* tokens.css - Design Tokens da NECXUS baseados no Stitch Design System */
+
+:root {
+  /* ── Paleta de Cores (Stitch Light Theme) ── */
+  --color-primary: #000d22;
+  --color-on-primary: #ffffff;
+  
+  --color-secondary: #0054cb;
+  --color-on-secondary: #ffffff;
+  
+  --color-electric-blue-dark: #2b5ad9;
+  --color-slate-grey: #4b5563;
+  --color-outline: #75777e;
+  --color-outline-variant: #c5c6ce;
+  
+  --color-background: #f8f9ff;
+  --color-on-background: #161c23;
+  
+  --color-surface: #f8f9ff;
+  --color-on-surface: #161c23;
+  --color-on-surface-variant: #44474d;
+  
+  --color-surface-container: #e9eef8;
+  --color-surface-container-low: #eff4fe;
+  --color-surface-container-high: #e3e8f2;
+  --color-surface-container-highest: #dee3ed;
+  
+  --color-primary-container: #12233c;
+  --color-on-primary-container: #7a8ba9;
+  
+  --color-secondary-container: #286def;
+  --color-on-secondary-container: #fefcff;
+  
+  --color-pure-white: #ffffff;
+  --color-error: #ba1a1a;
+  --color-success: #15803d;
+  --color-success-bg: rgba(21, 128, 61, 0.1);
+  --color-success-border: rgba(21, 128, 61, 0.2);
+  --color-error-bg: rgba(186, 26, 26, 0.1);
+  --color-error-border: rgba(186, 26, 26, 0.2);
+  
+  /* Cores do Chat Widget */
+  --color-electric-blue: #3e7dff;
+  --color-deep-navy: #12233c;
+  --color-chat-bubble-bot: #f3f4f6;
+  --color-chat-glass-bg: rgba(255, 255, 255, 0.75);
+  --color-chat-footer-bg: rgba(255, 255, 255, 0.5);
+  
+  /* Cores de Alerta e Conexão */
+  --color-warning: #f59e0b;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #128c7e;
+  
+  /* ── Tipografia (Inter) ── */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Escala de Fontes Responsivas (Clamps) */
+  --text-xs: clamp(0.75rem, 1vw + 0.5rem, 0.875rem); /* label-sm / 14px */
+  --text-md: clamp(0.95rem, 1.2vw + 0.6rem, 1.05rem); /* body-md / 16px */
+  --text-lg: clamp(1.1rem, 1.5vw + 0.7rem, 1.25rem);  /* body-lg / 18px */
+  --text-xl: clamp(1.5rem, 2.5vw + 1rem, 2.1rem);     /* headline-md / 32px (mobile 24px) */
+  --text-hero: clamp(2.25rem, 6vw + 1.2rem, 3.5rem);  /* display-lg / 48px (mobile 36px) */
+  --text-chat-status: 0.625rem;
+  --text-chat-time: 0.5625rem;
+
+  /* ── Espaçamentos (Stitch Spacing) ── */
+  --space-base: 8px;
+  --space-gutter: 24px;
+  --space-section-desktop: 80px;
+  --space-section-mobile: 40px;
+  --container-max: 1280px;
+  
+  /* ── Bordas e Arredondamento ── */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  
+  /* Aliases para compatibilidade */
+  --rounded-sm: var(--radius-sm);
+  --rounded-md: var(--radius-md);
+  --rounded-lg: var(--radius-lg);
+  --rounded-xl: var(--radius-xl);
+  --rounded-full: var(--radius-full);
+  
+  /* ── Transições Globais ── */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Sombras e Opacidades (Baseadas em Deep Navy #12233C e Cores de Token) ── */
+  --shadow-sm: 0 1px 3px rgba(18, 35, 60, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(18, 35, 60, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(18, 35, 60, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(18, 35, 60, 0.1);
+  --shadow-interactive: 0 20px 40px rgba(18, 35, 60, 0.1);
+  --shadow-btn-focus: 0 0 0 3px rgba(0, 84, 203, 0.15);
+  --shadow-btn-cta: 0 10px 15px -3px rgba(18, 35, 60, 0.2);
+  --shadow-btn-cta-hover: 0 20px 25px -5px rgba(18, 35, 60, 0.3);
+  
+  --opacity-chat-close: 0.8;
+  --opacity-chat-time: 0.6;
+  
+  --border-light: 1px solid rgba(117, 117, 126, 0.1);
+  --border-light-primary-5: 1px solid rgba(18, 35, 60, 0.05);
+  --color-outline-opacity-10: rgba(117, 117, 126, 0.1);
+  --color-secondary-opacity-10: rgba(0, 84, 203, 0.1);
+  --color-secondary-opacity-25: rgba(0, 84, 203, 0.25);
+  --color-secondary-opacity-30: rgba(0, 84, 203, 0.3);
+  --color-electric-blue-opacity-30: rgba(43, 90, 217, 0.3);
+  --color-nav-bg: rgba(248, 249, 255, 0.8);
+
+  /* Altura da Navbar (para compensar o position: fixed) */
+  --navbar-height: 72px;
+}
