@@ -56,17 +56,25 @@ export function initFormValidation() {
       return;
     }
 
-    // Feedback visual de envio (Simulação)
+    // Feedback visual de envio
     const submitBtn = form.querySelector('.form-submit-btn');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = 'Redirecionando...';
     submitBtn.disabled = true;
 
+    // Constrói a mensagem para o WhatsApp
+    const businessLabel = form.querySelector(`#business option[value="${business}"]`)?.textContent || business;
+    const textMsg = `Olá Rafael! Fiz a triagem rápida pelo site:\n👤 *Nome:* ${name}\n📱 *WhatsApp:* ${whatsapp}\n🏢 *Tipo de Negócio:* ${businessLabel}\n🎯 *Objetivo:* ${goal}`;
+    const whatsappUrl = `https://wa.me/5515997047914?text=${encodeURIComponent(textMsg)}`;
+
     setTimeout(() => {
-      showFeedback(`Obrigado pelo contato, ${name}! Entraremos em contato via WhatsApp no número ${whatsapp} em breve.`, 'success');
+      showFeedback(`Obrigado pelo contato, ${name}! Estamos te redirecionando para o WhatsApp...`, 'success');
       form.reset();
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-    }, 1500);
+      
+      // Abre o WhatsApp em nova aba ou redireciona
+      window.open(whatsappUrl, '_blank') || (window.location.href = whatsappUrl);
+    }, 1000);
   });
 }
