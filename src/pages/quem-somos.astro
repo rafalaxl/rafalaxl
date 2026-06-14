@@ -2,6 +2,8 @@
 // src/pages/quem-somos.astro
 import Layout from '../layouts/Layout.astro';
 import Cta from '../components/Cta.astro';
+import { Image } from 'astro:assets';
+import devBoutiqueImg from '../../assets/images/desenvolvimento_boutique.webp';
 
 const aboutSchema = {
   "@context": "https://schema.org",
@@ -56,23 +58,35 @@ const aboutSchema = {
 
   <!-- História e Propósito -->
   <section class="py-20 border-t border-white/5 bg-surface/30">
-    <div class="max-w-3xl mx-auto px-4 md:px-8">
-      <h2 class="text-3xl md:text-4xl font-display font-semibold text-primary tracking-tight mb-8">
-        O Fim da Burocracia corporativa
-      </h2>
-      <div class="prose prose-invert max-w-none text-secondary space-y-6 text-base md:text-lg leading-relaxed">
-        <p>
-          A <strong class="text-primary">NECXUS</strong> nasceu de um descontentamento claro com o mercado tradicional de desenvolvimento web. Durante anos, vi proprietários de clínicas, estúdios de tatuagem e academias pagarem caro por sites que eram apenas cópias de templates prontos do WordPress — pesados, instáveis e lentos.
-        </p>
-        <p>
-          Pior do que o produto final era o processo de comunicação. No modelo de agência convencional, para que uma simples mudança fosse feita no seu site, você precisava passar por um comercial, falar com um gerente de contas, abrir um ticket técnico e aguardar dias até que um programador terceirizado recebesse o chamado com ruídos de comunicação.
-        </p>
-        <p>
-          Eu decidi fazer diferente. Fundei a <strong class="text-primary">NECXUS</strong> sob a premissa do <strong class="text-primary">desenvolvimento boutique</strong>. Isso significa que você tem acesso direto a mim, o engenheiro responsável pelo seu projeto. Não terceirizo a criação. Cada linha de HTML, CSS e JavaScript que compõe o seu site é escrita diretamente por mim, focada em segurança, SEO e velocidade de carregamento real.
-        </p>
-        <p>
-          O nome da marca vem de <strong class="text-primary">Nexo</strong> — a união lógica, a coerência entre o que o seu negócio é na vida real e como ele é representado no mundo digital. Unimos a solidez técnica de engenharia de software à sensibilidade de vendas que o seu negócio precisa para atrair e reter clientes reais.
-        </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex flex-col gap-6">
+        <h2 class="text-3xl md:text-4xl font-display font-semibold text-primary tracking-tight">
+          O Fim da Burocracia corporativa
+        </h2>
+        <div class="prose prose-invert max-w-none text-secondary space-y-6 text-base md:text-lg leading-relaxed">
+          <p>
+            A <strong class="text-primary">NECXUS</strong> nasceu de um descontentamento claro com o mercado tradicional de desenvolvimento web. Durante anos, vi proprietários de clínicas, estúdios de tatuagem e academias pagarem caro por sites que eram apenas cópias de templates prontos do WordPress — pesados, instáveis e lentos.
+          </p>
+          <p>
+            Pior do que o produto final era o processo de comunicação. No modelo de agência convencional, para que uma simples mudança fosse feita no seu site, você precisava passar por um comercial, falar com um gerente de contas, abrir um ticket técnico e aguardar dias até que um programador terceirizado recebesse o chamado com ruídos de comunicação.
+          </p>
+          <p>
+            Eu decidi fazer diferente. Fundei a <strong class="text-primary">NECXUS</strong> sob a premissa do <strong class="text-primary">desenvolvimento boutique</strong>. Isso significa que você tem acesso direto a mim, o engenheiro responsável pelo seu projeto. Não terceirizo a criação. Cada linha de HTML, CSS e JavaScript que compõe o seu site é escrita diretamente por mim, focada em segurança, SEO e velocidade de carregamento real.
+          </p>
+          <p>
+            O nome da marca vem de <strong class="text-primary">Nexo</strong> — a união lógica, a coerência entre o que o seu negócio é na vida real e como ele é representado no mundo digital. Unimos a solidez técnica de engenharia de software à sensibilidade de vendas que o seu negócio precisa para atrair e reter clientes reais.
+          </p>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
+        <Image
+          src={devBoutiqueImg}
+          alt="Desenvolvimento Boutique com tecnologia de ponta e proximidade extrema"
+          width={600}
+          height={400}
+          format="webp"
+          class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+        />
       </div>
     </div>
   </section>
