@@ -1,0 +1,137 @@
+---
+// src/components/ChatWidget.astro
+const whatsappNumber = "5515997047914";
+const options = [
+  "Preciso de um site rápido para captar clientes locais",
+  "Quero criar uma Landing Page para rodar anúncios pagos",
+  "Gostaria de conhecer o portfólio de projetos",
+  "Quero tirar uma dúvida técnica sobre meu site atual"
+];
+---
+
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end font-body">
+  <!-- Chat Window -->
+  <div
+    id="chat-window"
+    class="hidden w-[350px] max-w-[calc(100vw-2rem)] h-[450px] bg-surface border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden mb-4 transition-all duration-300 scale-95 opacity-0 origin-bottom-right"
+  >
+    <!-- Chat Header -->
+    <div class="bg-elevated px-4 py-3 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="relative w-10 h-10 rounded-full bg-accent-primary/20 flex items-center justify-center border border-accent-primary/30">
+          <span class="text-accent-primary font-bold text-sm">RX</span>
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-status-success rounded-full border-2 border-surface animate-pulse"></span>
+        </div>
+        <div>
+          <h4 class="text-sm font-semibold text-primary">Atendente Virtual</h4>
+          <p class="text-xs text-secondary flex items-center gap-1">Online • Responde em até 1 min</p>
+        </div>
+      </div>
+      <button id="chat-close" class="text-muted hover:text-primary p-1 rounded-lg transition-colors" aria-label="Fechar janela de atendimento virtual">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4 flex flex-col">
+      <!-- Assistant Welcome -->
+      <div class="bg-elevated text-secondary text-sm p-3 rounded-2xl rounded-tl-none max-w-[85%] self-start leading-relaxed border border-white/5">
+        Olá! Seja bem-vindo à NECXUS. Para direcionar você ao atendimento correto, me diga: qual é o principal objetivo do seu negócio na internet hoje?
+      </div>
+      <!-- Triagem Buttons -->
+      <div id="triagem-options" class="flex flex-col gap-2 pt-2">
+        {options.map((opt) => (
+          <button class="triagem-btn text-left text-xs bg-white/5 hover:bg-accent-primary/10 border border-white/10 hover:border-accent-primary/30 text-secondary hover:text-primary py-2 px-3 rounded-xl transition-all duration-200">
+            {opt}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Input Footer -->
+    <form id="chat-form" class="p-3 border-t border-white/10 bg-elevated/50 flex gap-2">
+      <input
+        type="text"
+        id="chat-input"
+        placeholder="Digite sua mensagem..."
+        class="flex-grow bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm text-primary placeholder-muted focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all"
+        required
+      />
+      <button type="submit" class="bg-accent-primary hover:bg-accent-primary/95 text-white p-2 rounded-full transition-all hover:scale-105 duration-200 flex items-center justify-center" aria-label="Enviar resposta da triagem">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Trigger Button -->
+  <button id="chat-trigger" class="w-14 h-14 bg-status-success text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 hover:shadow-[0_0_20px_rgba(16,185,129,0.5)] transition-all duration-300 relative" aria-label="Abrir atendimento virtual">
+    <span class="absolute top-0 right-0 w-3 h-3 bg-accent-primary rounded-full border-2 border-base"></span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+  </button>
+</div>
+
+<script define:vars={{ whatsappNumber }}>
+  const trigger = document.getElementById('chat-trigger');
+  const windowEl = document.getElementById('chat-window');
+  const closeBtn = document.getElementById('chat-close');
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const messagesContainer = document.getElementById('chat-messages');
+  const triagemOptions = document.getElementById('triagem-options');
+
+  let isOpen = false;
+
+  function toggleChat() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      windowEl.classList.remove('hidden');
+      setTimeout(() => {
+        windowEl.classList.remove('scale-95', 'opacity-0');
+        windowEl.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    } else {
+      windowEl.classList.remove('scale-100', 'opacity-100');
+      windowEl.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => windowEl.classList.add('hidden'), 300);
+    }
+  }
+
+  trigger?.addEventListener('click', toggleChat);
+  closeBtn?.addEventListener('click', toggleChat);
+
+  function addMessage(text, isUser = false) {
+    const msg = document.createElement('div');
+    msg.className = isUser
+      ? 'bg-accent-primary text-white text-sm p-3 rounded-2xl rounded-tr-none max-w-[85%] self-end leading-relaxed'
+      : 'bg-elevated text-secondary text-sm p-3 rounded-2xl rounded-tl-none max-w-[85%] self-start leading-relaxed border border-white/5';
+    msg.textContent = text;
+    messagesContainer?.appendChild(msg);
+    messagesContainer?.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
+  }
+
+  function handleResponse(response) {
+    if (triagemOptions) triagemOptions.style.display = 'none';
+    addMessage(response, true);
+    setTimeout(() => {
+      addMessage("Criando conexão segura e processando dados de triagem...");
+      setTimeout(() => {
+        addMessage("Direcionando para o WhatsApp do Rafael...");
+        const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Olá, vim do site da NECXUS e realizei a triagem: ${response}`)}`;
+        setTimeout(() => window.open(url, '_blank'), 1000);
+      }, 1000);
+    }, 800);
+  }
+
+  document.querySelectorAll('.triagem-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => handleResponse(e.target.textContent.trim()));
+  });
+
+  chatForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = chatInput.value.trim();
+    if (text) {
+      chatInput.value = '';
+      handleResponse(text);
+    }
+  });
+</script>

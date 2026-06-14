@@ -1,0 +1,120 @@
+---
+// src/components/Navbar.astro
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/quem-somos', label: 'Quem Somos' },
+  { href: '/conteudo-educativo', label: 'Conteúdo Educativo' },
+  { href: '/portfolio', label: 'Portfólio' },
+];
+
+const whatsappNumber = "5515997047914";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá,%20gostaria%20de%20iniciar%20um%20projeto%20com%20a%20NECXUS.`;
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-white/5 backdrop-blur-lg border-b border-white/10 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+    <!-- Logotipo -->
+    <a href="/" class="flex items-center gap-2 text-2xl font-display font-bold text-primary tracking-tight" aria-label="Retornar para a página inicial da NECXUS">
+      <span class="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">NECXUS</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href;
+        return (
+          <a
+            href={link.href}
+            class={`relative text-sm font-medium transition-colors duration-200 hover:text-primary ${
+              isActive ? 'text-accent-primary font-semibold' : 'text-secondary'
+            }`}
+          >
+            {link.label}
+            {isActive && (
+              <span class="absolute -bottom-1.5 left-0 w-full h-[2px] bg-gradient-to-r from-accent-primary to-accent-secondary rounded-full" />
+            )}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- CTA Button -->
+    <div class="hidden md:flex items-center">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-accent-primary text-white text-sm font-medium hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-300"
+      >
+        Iniciar Projeto
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col justify-between w-6 h-5 text-primary focus:outline-none"
+      aria-label="Alternar visibilidade do menu de navegação"
+      aria-expanded="false"
+    >
+      <span class="w-full h-[2px] bg-current rounded transition-all duration-300 origin-left"></span>
+      <span class="w-full h-[2px] bg-current rounded transition-all duration-300"></span>
+      <span class="w-full h-[2px] bg-current rounded transition-all duration-300 origin-left"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden absolute top-20 left-0 w-full bg-base/95 backdrop-blur-xl border-b border-white/10 px-4 py-6 flex flex-col gap-4 transition-all duration-300"
+  >
+    {navLinks.map((link) => {
+      const isActive = currentPath === link.href;
+      return (
+        <a
+          href={link.href}
+          class={`text-base font-medium py-2 px-3 rounded-lg hover:bg-white/5 transition-colors ${
+            isActive ? 'text-accent-primary bg-white/5 border-l-2 border-accent-primary' : 'text-secondary'
+          }`}
+        >
+          {link.label}
+        </a>
+      );
+    })}
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-2 w-full text-center px-6 py-3 rounded-full bg-accent-primary text-white text-base font-medium hover:bg-accent-primary/90 transition-all duration-300"
+    >
+      Iniciar Projeto
+    </a>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuSpans = menuToggle?.querySelectorAll('span');
+
+  menuToggle?.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+
+    if (menuSpans && menuSpans.length === 3) {
+      if (!isExpanded) {
+        menuSpans[0].style.transform = 'rotate(45deg) translate(2px, -1px)';
+        menuSpans[1].style.opacity = '0';
+        menuSpans[2].style.transform = 'rotate(-45deg) translate(2px, 1px)';
+      } else {
+        menuSpans[0].style.transform = 'none';
+        menuSpans[1].style.opacity = '1';
+        menuSpans[2].style.transform = 'none';
+      }
+    }
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+const whatsappNumber = "5515997047914";
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=Olá,%20gostaria%20de%20conversar%20sobre%20um%20projeto%20com%20a%20NECXUS.`;
+---
+
+<footer class="bg-surface border-t border-white/10 py-16 mt-24">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 pb-12 border-b border-white/5">
+      <!-- Slogan / Sobre -->
+      <div class="flex flex-col gap-4">
+        <a href="/" class="text-2xl font-display font-bold text-primary tracking-tight">
+          <span class="bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">NECXUS</span>
+        </a>
+        <p class="text-secondary text-sm max-w-sm leading-relaxed">
+          NECXUS — Código sob medida para negócios que não aceitam a lentidão como padrão.
+        </p>
+      </div>
+
+      <!-- Links Rápidos -->
+      <div class="flex flex-col gap-4">
+        <h4 class="text-primary font-semibold text-sm tracking-wider uppercase">Navegação</h4>
+        <ul class="flex flex-col gap-2">
+          <li>
+            <a href="/#servicos" class="text-muted hover:text-primary text-sm transition-colors duration-200">Serviços</a>
+          </li>
+          <li>
+            <a href="/portfolio" class="text-muted hover:text-primary text-sm transition-colors duration-200">Portfólio</a>
+          </li>
+          <li>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-muted hover:text-primary text-sm transition-colors duration-200">Contato</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="flex flex-col gap-4">
+        <h4 class="text-primary font-semibold text-sm tracking-wider uppercase">Legal</h4>
+        <ul class="flex flex-col gap-2">
+          <li>
+            <a href="/termos-de-uso" class="text-muted hover:text-primary text-sm transition-colors duration-200">Termos de Uso</a>
+          </li>
+          <li>
+            <a href="/politica-de-privacidade" class="text-muted hover:text-primary text-sm transition-colors duration-200">Política de Privacidade</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted">
+      <p>© {currentYear} NECXUS. Todos os direitos reservados. CNPJ: 00.000.000/0001-00.</p>
+      <p class="flex items-center gap-1">
+        Desenvolvido com ⚡ Astro & Tailwind CSS por Rafael
+      </p>
+    </div>
+  </div>
+</footer>

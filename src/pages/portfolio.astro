@@ -1,0 +1,106 @@
+---
+// src/pages/portfolio.astro
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+import { Image } from 'astro:assets';
+import { phases, portfolioSchema } from '../data/portfolio';
+---
+
+<Layout
+  title="Portfólio de Engenharia Web | Projetos Reais da NECXUS"
+  description="Conheça nossa Trilha de Evolução Técnica. 7 projetos reais que exemplificam nossa capacidade técnica, de Landing Pages velozes a Web Apps interativos em Next.js."
+  ogTitle="NECXUS | Portfólio Técnico e Estudos de Caso Reais"
+  ogDescription="Veja a nossa escala evolutiva de engenharia de software e os resultados práticos de conversão gerados para nossos parceiros comerciais."
+  schema={portfolioSchema}
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-base text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-radial-gradient from-accent-primary/5 via-transparent to-transparent opacity-50"></div>
+    <div class="max-w-4xl mx-auto px-4 md:px-8 relative z-10 flex flex-col gap-6">
+      <h1 class="text-4xl md:text-6xl font-display font-bold text-primary tracking-tight">
+        A Linha de Evolução Técnica
+      </h1>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed font-body max-w-2xl mx-auto">
+        Do básico ao avançado. Apresentamos 7 projetos reais desenvolvidos pela NECXUS, detalhando o desafio de engenharia superado e os resultados práticos obtidos em cada um deles.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline / Fases -->
+  <section class="py-16 border-t border-white/5 bg-surface/20 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 space-y-24 relative z-10">
+      {phases.map((phase) => (
+        <div class="flex flex-col gap-8">
+          <!-- Cabeçalho da Fase -->
+          <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight uppercase">
+              {phase.title}
+            </h2>
+            <p class="text-sm text-secondary mt-2">
+              {phase.desc}
+            </p>
+          </div>
+
+          <!-- Projetos da Fase -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            {phase.projects.map((project) => (
+              <div class="bg-surface border border-white/10 hover:border-accent-primary/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(59,130,246,0.1)]">
+                <div class="flex flex-col gap-6">
+                  <!-- Imagem do Projeto -->
+                  <div class="overflow-hidden rounded-xl border border-white/10 aspect-video bg-base relative group">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title}
+                      width={640}
+                      height={360}
+                      format="webp"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <!-- Info -->
+                  <div class="flex flex-col gap-3">
+                    <span class="text-xs text-accent-secondary font-mono tracking-wider">
+                      {project.tech}
+                    </span>
+                    <h3 class="text-xl md:text-2xl font-display font-bold text-primary">
+                      {project.title}
+                    </h3>
+                    <div class="space-y-3 text-xs md:text-sm text-secondary leading-relaxed">
+                      <p>
+                        <strong class="text-primary block font-medium">O Desafio Real:</strong> 
+                        {project.desafio}
+                      </p>
+                      <p class="bg-accent-primary/5 border border-accent-primary/10 p-3 rounded-lg text-primary">
+                        <strong class="text-accent-primary block font-medium mb-0.5">O Resultado de Performance:</strong> 
+                        {project.resultado}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Link -->
+                <div class="mt-6 pt-6 border-t border-white/5">
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 text-xs md:text-sm font-medium text-accent-primary hover:text-white transition-colors duration-200"
+                  >
+                    Visitar Site Oficial
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <Cta />
+</Layout>

@@ -1,0 +1,130 @@
+---
+// src/pages/conteudo-educativo.astro
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+import { Image } from 'astro:assets';
+
+import mobileFirstImg from '../../assets/images/mobile_first.webp';
+import artOfSeoImg from '../../assets/images/art_of_SEO.webp';
+import desenvolvimentoImg from '../../assets/images/desenvolvimento.webp';
+import triagemVirtualImg from '../../assets/images/triagem_virtual.webp';
+
+const eduSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Guias de Otimização Técnica NECXUS",
+  "description": "Respostas e guias didáticos estruturados sobre performance, SEO, mobile-first e triagem de leads.",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Por que a velocidade mobile afeta minhas vendas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sites lentos geram abandono imediato da página. Se o site demora mais de 3 segundos no 3G/4G, os visitantes fecham a guia, desperdiçando o dinheiro gasto em anúncios pagos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é SEO Local e como ele atrai clientes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEO Local é a otimização que permite a negócios locais serem encontrados quando clientes na mesma região buscam por seus serviços no Google ou no Google Maps."
+      }
+    }
+  ]
+};
+
+const articles = [
+  {
+    title: "O Mito do \"Site que Funciona no Celular\"",
+    badge: "Mobile-First Real",
+    summary: "Por que sites lentos nas conexões móveis destroem o orçamento das suas campanhas de anúncios pagos no Instagram e Google.",
+    content: "Muitas agências vendem sites \"responsivos\" que simplesmente encolhem o layout feito para computador para caber na tela do celular. O problema é que, por baixo desse visual adaptado, o site continua carregando o mesmo volume de códigos pesados e imagens gigantescas feitas para telas de mesa. Na rede móvel do celular (3G ou 4G), esse site \"adaptado\" se arrasta. O resultado é o aumento drástico da taxa de rejeição: as pessoas clicam no anúncio, a tela fica em branco e elas retornam à rede social antes mesmo da página carregar. O desenvolvimento Mobile-First Real inverte essa lógica, programando focado nas limitações de rede dos celulares de entrada.",
+    image: mobileFirstImg,
+    alt: "Mobile-First Real"
+  },
+  {
+    title: "Como Ser Encontrado na Sua Região Sem Gastar com Anúncios",
+    badge: "A Arte do SEO Local & GEO",
+    summary: "O guia essencial sobre como dados estruturados locais (Schema JSON-LD) e otimização semântica colocam sua marca no topo do Google Maps.",
+    content: "Quando alguém na sua cidade pesquisa por serviços locais, o Google analisa sinais locais e estruturas técnicas invisíveis como dados estruturados (Schema JSON-LD) direto no código do site. Esse código oculto avisa aos robôs do Google exatamente o seu segmento, telefone, horário e localização. Combinando esses dados com um site rápido, o algoritmo do Google entende que sua empresa é confiável, exibindo sua marca nas primeiras posições de busca orgânica e no Google Maps. É tráfego qualificado de graça batendo à sua porta.",
+    image: artOfSeoImg,
+    alt: "A Arte do SEO Local"
+  },
+  {
+    title: "A Pontuação do Google que Define Quem Vende e Quem Fica Invisível",
+    badge: "Performance Extrema",
+    summary: "O que são as métricas Core Web Vitals do Google e como o carregamento em menos de 2 segundos afeta seu ranqueamento orgânico.",
+    content: "Core Web Vitals são o conjunto de métricas oficiais que o Google utiliza para avaliar a experiência de velocidade (LCP), interatividade (FID/INP) e estabilidade visual (CLS) de uma página. Se os seus elementos gráficos pulam na tela ou o clique no WhatsApp demora a responder, o Google penaliza sua posição de busca orgânica. Desenvolver com Astro nos permite alcançar pontuações excelentes (acima de 95/100) no Lighthouse, gerando credibilidade e mais conversões.",
+    image: desenvolvimentoImg,
+    alt: "Performance Extrema"
+  },
+  {
+    title: "Como Capturar Leads Qualificados Enquanto Eles Estão Quentes",
+    badge: "Triagem Virtual Inteligente",
+    summary: "Por que substituir formulários frios por fluxos interativos de triagem virtual aumenta as conversões do seu negócio local.",
+    content: "Ninguém gosta de preencher formulários estáticos e longos. O visitante quer saber se você resolve o problema dele agora. Substituir formulários por um assistente de triagem virtual transforma a tarefa em um diálogo dinâmico. O sistema qualifica o lead por meio de perguntas simples e envia os dados organizados direto para o WhatsApp comercial, poupando tempo da equipe e focando em quem está pronto para fechar.",
+    image: triagemVirtualImg,
+    alt: "Triagem Virtual Inteligente"
+  }
+];
+---
+
+<Layout
+  title="Conteúdo Educativo | Guias Técnicos de Alta Performance"
+  description="Aprenda a blindar o site do seu negócio local. Dicas táticas sobre Core Web Vitals, Mobile-First real, SEO Local e sistemas de triagem virtual de leads."
+  ogTitle="NECXUS | Educação Digital para Pequenas e Médias Empresas"
+  ogDescription="Artigos objetivos criados para ajudar donos de negócios a avaliarem e otimizarem a performance de sua presença digital."
+  schema={eduSchema}
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-base text-center">
+    <div class="max-w-4xl mx-auto px-4 md:px-8 flex flex-col gap-6">
+      <h1 class="text-4xl md:text-6xl font-display font-bold text-primary tracking-tight">
+        Guias Táticos para a Sua Presença Digital
+      </h1>
+      <p class="text-lg md:text-xl text-secondary leading-relaxed font-body max-w-2xl mx-auto">
+        Conhecimento técnico direto ao ponto. Entenda as métricas que realmente interferem no faturamento da sua empresa e na captação orgânica de clientes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles List -->
+  <section class="py-16 border-t border-white/5 bg-surface/25">
+    <div class="max-w-5xl mx-auto px-4 md:px-8 space-y-24">
+      {articles.map((art, idx) => (
+        <article class={`grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+          <div class={`md:col-span-5 ${idx % 2 === 1 ? 'md:order-last' : ''}`}>
+            <div class="overflow-hidden rounded-2xl border border-white/10 bg-surface">
+              <Image 
+                src={art.image} 
+                alt={art.alt}
+                width={480}
+                height={320}
+                format="webp"
+                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-7 flex flex-col gap-4">
+            <span class="text-xs font-semibold uppercase tracking-widest text-accent-secondary bg-accent-secondary/10 px-3 py-1 rounded-full self-start">
+              {art.badge}
+            </span>
+            <h3 class="text-2xl md:text-3xl font-display font-bold text-primary tracking-tight">
+              {art.title}
+            </h3>
+            <p class="text-sm text-accent-primary font-medium">
+              {art.summary}
+            </p>
+            <p class="text-secondary text-sm md:text-base leading-relaxed">
+              {art.content}
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <Cta />
+</Layout>
