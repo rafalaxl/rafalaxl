@@ -1,42 +1,43 @@
-# NECXUS Digital
+# Astro Starter Kit: Minimal
 
-A NECXUS é uma agência focada na criação de sites institucionais ultrarrápidos e Landing Pages projetadas cientificamente para capturar leads qualificados e redirecioná-los diretamente para o WhatsApp do seu negócio.
+```sh
+npm create astro@latest -- --template minimal
+```
 
-## 🚀 Sobre o Projeto
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-Este repositório contém o código-fonte do site oficial da NECXUS. O projeto foi desenvolvido com foco total em **Performance (Mobile-First)**, **Acessibilidade** e **Conversão de Leads**. 
+## 🚀 Project Structure
 
-A arquitetura do site é construída com tecnologias web nativas para garantir a máxima velocidade de carregamento, sem depender de frameworks pesados que prejudicam a experiência do usuário em redes 3G/4G.
+Inside of your Astro project, you'll see the following folders and files:
 
-### Tecnologias Utilizadas
-- **HTML5 Semântico:** Estruturação otimizada para SEO local e leitores de tela.
-- **CSS Modular (Design Tokens):** Sistema de estilos escalável, com arquivos divididos por seções (nav, hero, footer, etc.) e variáveis globais.
-- **Vanilla JavaScript:** Scripts leves e modulares para o funcionamento do menu interativo e integração com o widget de atendimento virtual.
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## 🧪 Testes e Auditorias Executadas
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-O código passou por uma rigorosa auditoria de qualidade técnica (detalhada no arquivo `AUDITORIA.md`):
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-- **Performance e Semântica:** Validação de hierarquia HTML (apenas um `<h1>` por página) e implementação de schema markup JSON-LD para SEO avançado.
-- **Acessibilidade Web:** Uso rigoroso de atributos `aria-*` e `role` em componentes interativos (como o Chat Widget e Menu Mobile) garantindo navegação inclusiva.
-- **Responsividade Real:** Layout Mobile-First exaustivamente testado para telas pequenas, garantindo carregamento instantâneo.
-- **Padronização Visual:** Validação de tokens de design, garantindo contraste adequado e consistência nas cores em todo o ecossistema do site.
-- **Integração de Contato:** Testes no fluxo do Atendente Virtual, garantindo que a triagem de dados do visitante seja capturada e formatada perfeitamente no redirecionamento para o WhatsApp.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## 💻 Como Executar
+## 🧞 Commands
 
-Como o site é construído puramente com HTML/CSS/JS nativos, não é necessário processos de *build* ou compilação complexos.
+All commands are run from the root of the project, from a terminal:
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/rafalaxl/rafalaxl.git
-   ```
-2. Abra a pasta local no seu editor de código.
-3. Inicie um servidor local. Você pode usar a extensão **Live Server** do VS Code ou via Node.js pelo terminal:
-   ```bash
-   npx http-server . -p 8080
-   ```
-4. Acesse `http://localhost:8080` no seu navegador.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
----
-*Desenvolvido com 💻 e foco em conversões.*
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

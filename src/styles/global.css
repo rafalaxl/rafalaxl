@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+@theme {
+  --color-base: #09090B;
+  --color-surface: #18181B;
+  --color-elevated: #27272A;
+  --color-primary: #FAFAFA;
+  --color-secondary: #A1A1AA;
+  --color-muted: #71717A;
+  --color-accent-primary: #3B82F6;
+  --color-accent-secondary: #8B5CF6;
+  --color-accent-glow: rgba(59, 130, 246, 0.4);
+  --color-status-success: #10B981;
+  --color-status-error: #EF4444;
+
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Geist", sans-serif;
+}
